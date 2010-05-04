@@ -1,11 +1,10 @@
 \name{nhppSimulate}
 \alias{nhppSimulate}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Simulate a non-homogeneous Poisson Process
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function simulates an NHPP by blocked thinning
 }
 \usage{
 nhppSimulate(smoothRates)
@@ -13,31 +12,19 @@ nhppSimulate(smoothRates)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{smoothRates}{
-%%     ~~Describe \code{smoothRates} here~~
+A list containing x and y, which are the mid-points of the window and the smoothed number of events in this window
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The list component y of the argument represents the smoothed number of events in the window, namely, they represent the window rate
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+Returns a vector of events of a realization of the NHPP
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{nhppRateEstimate}}, \code{\link{nhppSpike}}
 }

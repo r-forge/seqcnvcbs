@@ -30,3 +30,6 @@ Jeremy J. Shen
 	## Should produce a vector of power of ten up to 10000
 	getAutoGridSize(2*10^5)
 }
+\seealso{
+\code{\link{ScanCBS}}
+}

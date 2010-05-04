@@ -31,4 +31,6 @@ A few C functions are used for efficient implementation
 \author{
 Jeremy J. Shen
 }
-
+\seealso{
+\code{\link{ScanCBS}}
+}

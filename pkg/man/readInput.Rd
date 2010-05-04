@@ -5,45 +5,34 @@
 Manage reading and merging of raw datasets. Main file input
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This is used to control the read of a meta file containing names of data files, merge, and give usable output for the main program
 }
 \usage{
 readInput(inputFilename, formatName, sep = "\t")
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{inputFilename}{
-%%     ~~Describe \code{inputFilename} here~~
+The name of file, containing relevant information of all input files
 }
   \item{formatName}{
-%%     ~~Describe \code{formatName} here~~
+The format in which the data files are written in. We use the simple 'Chiang' as default format of input.
 }
   \item{sep}{
-%%     ~~Describe \code{sep} here~~
+Delimiter of the meta input file, default is tab-delimited
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The meta input file should be organized in a table format with 2 columns, one of which is 'file' and the other is 'type', indicating the data file names and whether the data is from normal or tumor.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+
+\item{normalSeq }{A list containing the combined normal/control reads}
+\item{tumorSeq }{A list containing the combined case/tumor reads}
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{readListInputFile}}, \code{\link{readSeq}}
 }

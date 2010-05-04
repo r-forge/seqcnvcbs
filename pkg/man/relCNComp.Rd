@@ -5,48 +5,32 @@
 Compute the Relative Copy Number
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This computes the relative copy number by each of the segment called
 }
 \usage{
 relCNComp(combX, combZ, tauHatInd, p)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{combX}{
-%%     ~~Describe \code{combX} here~~
+The number of reads at each unique read position
 }
   \item{combZ}{
-%%     ~~Describe \code{combZ} here~~
+The number of case/tumor reads at each unique read position
 }
   \item{tauHatInd}{
-%%     ~~Describe \code{tauHatInd} here~~
+The index of change points called
 }
   \item{p}{
-%%     ~~Describe \code{p} here~~
+The overall proportion of case reads
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The relative CN is defined as the number of case reads divided by the number of control reads in a window, adjusted for overall proportion of case reads (divided by the overall relative CN).
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Returns a vector of relative CN for each of the segment between two change points
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+Jeremy J. Shen
 }

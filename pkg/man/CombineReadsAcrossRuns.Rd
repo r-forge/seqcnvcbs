@@ -22,3 +22,6 @@ Returns a list of the same format as the input lists
 \author{
 Jeremy J. Shen
 }
+\seealso{
+\code{\link{ScanCBS}}
+}

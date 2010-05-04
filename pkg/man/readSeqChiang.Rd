@@ -2,10 +2,10 @@
 \alias{readSeqChiang}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Read data formatted as in Chiang and our recommendation
+Read data formatted as in Chiang (2009)
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Read data formatted as in Chiang (2009), which we recommend using.
 }
 \usage{
 readSeqChiang(filename)
@@ -13,31 +13,23 @@ readSeqChiang(filename)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{filename}{
-%%     ~~Describe \code{filename} here~~
+The file name of the data set
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This format requires minimal memory and contains all relevant information for this program. It is a table with two columns, first being the chromosome of the mapped read, and the second being the position of the read in the chromosome. One line for each observation. In case of paired read, we only use the front read (whichever has a smaller position label) and ask that you use only that for input.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+  \item{seqF }{Read position for each read}
+  \item{seqChr }{Chromosome of each mapped read}
 }
 \references{
-%% ~put references to the literature/web site here ~
+Chiang et al., Nature Methods, 2009, Vol.6 No.1
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{readSeq}}, \code{\link{readSeqChiang}}, \code{\link{readSeqELANDPaired}}
 }

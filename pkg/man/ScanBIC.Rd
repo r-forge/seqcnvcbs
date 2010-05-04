@@ -5,7 +5,7 @@
 Compute the modified BIC for change-point models
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This computes mBIC for the current change point model. We then use this to determine the appropriate model complexity.
 }
 \usage{
 ScanBIC(combX, combZ, tauHat, lik0, nTotal)
@@ -13,43 +13,31 @@ ScanBIC(combX, combZ, tauHat, lik0, nTotal)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{combX}{
-%%     ~~Describe \code{combX} here~~
+The number of reads at each unique read position
 }
   \item{combZ}{
-%%     ~~Describe \code{combZ} here~~
+The number of case/tumor reads at each unique read position
 }
   \item{tauHat}{
-%%     ~~Describe \code{tauHat} here~~
+The change points called
 }
   \item{lik0}{
-%%     ~~Describe \code{lik0} here~~
+The null likelihood. Computed in the main routine.
 }
   \item{nTotal}{
-%%     ~~Describe \code{nTotal} here~~
+The total number of reads
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This is meanted to be called as a subrountine of \code{\link{ScanCBS}}
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+Returns a numerical value of mBIC for the current model
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{ScanCBS}}
 }

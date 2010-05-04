@@ -12,10 +12,10 @@ function(cases, controls, CBSObj, filename, mainTitle, length.out=1000, smoothF=
 	
 	grid.fix = seq(1, maxVal, length.out=length.out)
 	gridSize = grid.fix[2]-grid.fix[1]
-	casesCountInGrid = getCountsInWindow(cases, 0, maxVal, gridSize, sorted=F)
+	casesCountInGrid = getCountsInWindow(cases, 0, maxVal, gridSize, sorted=FALSE)
 	casesCountInGridSmooth = lowess(x=grid.fix, y=casesCountInGrid, smoothF/length.out)
 	casesCountInGridSmooth$y[casesCountInGridSmooth$y<0] = 0
-	controlCountInGrid = getCountsInWindow(controls, 0, maxVal, gridSize, sorted=F)
+	controlCountInGrid = getCountsInWindow(controls, 0, maxVal, gridSize, sorted=FALSE)
 	controlCountInGridSmooth = lowess(x=grid.fix, y=controlCountInGrid, smoothF/length.out)
 	controlCountInGridSmooth$y[controlCountInGridSmooth$y<0] = 0
 	PInGrid = casesCountInGrid/(casesCountInGrid+controlCountInGrid)

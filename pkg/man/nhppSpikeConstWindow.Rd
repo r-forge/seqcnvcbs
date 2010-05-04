@@ -2,10 +2,10 @@
 \alias{nhppSpikeConstWindow}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Spike NHPP rate with constant window size
+Spike NHPP rate with constant window width
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Randomly spike the smoothed control rate of an NHPP according to the parameters, with constant window width.
 }
 \usage{
 nhppSpikeConstWindow(smoothRates, nSpike = 25, cptLen = 5, minGain = 1.5, maxGain = 10, minLoss = 0.01, maxLoss = 0.5, pGain = 0.6)
@@ -13,52 +13,41 @@ nhppSpikeConstWindow(smoothRates, nSpike = 25, cptLen = 5, minGain = 1.5, maxGai
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{smoothRates}{
-%%     ~~Describe \code{smoothRates} here~~
+The smoothed rate estimate of the control process
 }
   \item{nSpike}{
-%%     ~~Describe \code{nSpike} here~~
+Number of signal spikes
 }
   \item{cptLen}{
-%%     ~~Describe \code{cptLen} here~~
+Window width of each signal region
 }
   \item{minGain}{
-%%     ~~Describe \code{minGain} here~~
+Minimal Gain relative CN
 }
   \item{maxGain}{
-%%     ~~Describe \code{maxGain} here~~
+Maximal Gain relative CN
 }
   \item{minLoss}{
-%%     ~~Describe \code{minLoss} here~~
+Minimal Loss relative CN
 }
   \item{maxLoss}{
-%%     ~~Describe \code{maxLoss} here~~
+Maximal Loss relative CN
 }
   \item{pGain}{
-%%     ~~Describe \code{pGain} here~~
+Proportion of signal regions that are CN gain
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The signal strength are uniformly drawn between the two limits.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+  \item{spikeMat }{A matrix containing the actual signal spike information}
+  \item{caseRates }{The rate of the case PP to be simulated after signal spike}
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{nhppSimulate}}
 }

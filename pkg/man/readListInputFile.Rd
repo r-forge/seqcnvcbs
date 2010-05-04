@@ -2,10 +2,10 @@
 \alias{readListInputFile}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Read file containing list of raw data files
+Read meta file containing list of raw data files
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Reads a meta file that contains the file names and type of the data files. See details for the format.
 }
 \usage{
 readListInputFile(inputFilename, sep = "\t")
@@ -13,34 +13,22 @@ readListInputFile(inputFilename, sep = "\t")
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{inputFilename}{
-%%     ~~Describe \code{inputFilename} here~~
+The name of file, containing relevant information of all input files
 }
   \item{sep}{
-%%     ~~Describe \code{sep} here~~
+Delimiter of the meta input file, default is tab-delimited
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The meta input file should be organized in a table format with 2 columns, one of which is 'file' and the other is 'type', indicating the data file names and whether the data is from 'normal' or 'tumor'.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+  \item{normalFiles }{A character vector containing the names of files with the normal reads}
+  \item{tumorFiles }{A character vector containing the names of files with the tumor reads}
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{readInput}}, \code{\link{readSeq}}
 }

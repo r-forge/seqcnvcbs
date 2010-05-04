@@ -1,6 +1,6 @@
 readSeqELANDPaired <-
 function(filename) {
-	seqRaw = read.table(filename, as.is=T)
+	seqRaw = read.table(filename, as.is=TRUE)
 	seqMatch = seqRaw[seqRaw[,2]==seqRaw[,6],]
 	rm(seqRaw)
 	seqChr = factor(seqMatch[,2])

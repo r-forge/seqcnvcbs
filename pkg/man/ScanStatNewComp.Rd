@@ -5,7 +5,7 @@
 Main new window scan statistics computation
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This is a wrapper function to call the C routines for the scan statistic new candidate segmentation computing from the IGS
 }
 \usage{
 ScanStatNewComp(combZCumSum, combXCumSum, combZPoint, combXPoint, p, nTotal, grid.cur, max.win, statistic)
@@ -13,55 +13,43 @@ ScanStatNewComp(combZCumSum, combXCumSum, combZPoint, combXPoint, p, nTotal, gri
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{combZCumSum}{
-%%     ~~Describe \code{combZCumSum} here~~
+A cumulative sum of the number of case reads
 }
   \item{combXCumSum}{
-%%     ~~Describe \code{combXCumSum} here~~
+A cumulative sum of the number of reads
 }
   \item{combZPoint}{
-%%     ~~Describe \code{combZPoint} here~~
+The number of case reads at the grid points
 }
   \item{combXPoint}{
-%%     ~~Describe \code{combXPoint} here~~
+The number of reads at the grid points
 }
   \item{p}{
-%%     ~~Describe \code{p} here~~
+The proportion of case reads in the current region
 }
   \item{nTotal}{
-%%     ~~Describe \code{nTotal} here~~
+The total number of reads in the current region
 }
   \item{grid.cur}{
-%%     ~~Describe \code{grid.cur} here~~
+The current grid to be computed on
 }
   \item{max.win}{
-%%     ~~Describe \code{max.win} here~~
+The maximum inter-window to be considered for new scan
 }
   \item{statistic}{
-%%     ~~Describe \code{statistic} here~~
+The type of statistic. Can be 'binomial','rabinowitz', 'normal', or 'hybrid'
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The computations are done in C for speed.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+Returns a matrix containing the candidate change points from the new scan
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{ScanCBS}}, \code{\link{ScanIterateGrid}}
 }

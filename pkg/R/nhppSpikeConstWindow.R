@@ -9,7 +9,7 @@ function(smoothRates, nSpike=25, cptLen=5, minGain=1.5, maxGain=10, minLoss=0.01
 	gridL = sample(1:(nGrid-cptLen), nSpike)
 	gridR = gridL+cptLen-1
 	gridR[gridR>nGrid] = nGrid
-	relCN = sample(0:1, nSpike, replace=T, prob=c(1-pGain, pGain))
+	relCN = sample(0:1, nSpike, replace=TRUE, prob=c(1-pGain, pGain))
 	relCN[1] = 0
 	relCN[2] = 1
 	relCN[relCN==0] = runif(sum(relCN==0), min=minLoss, max=maxLoss)

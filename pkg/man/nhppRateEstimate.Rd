@@ -5,7 +5,7 @@
 Estimate the rate of non-homogeneous PP with data
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Given a vector of point events, give a rough estimate of the rate of underlying non-homogeneous Poisson process by window and smoothing
 }
 \usage{
 nhppRateEstimate(controls, length.out = floor(length(controls)/100), lowessF = 0.1)
@@ -13,37 +13,26 @@ nhppRateEstimate(controls, length.out = floor(length(controls)/100), lowessF = 0
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{controls}{
-%%     ~~Describe \code{controls} here~~
+A vector of point locations (read positions) of a control sample for which the rate is wanted
 }
   \item{length.out}{
-%%     ~~Describe \code{length.out} here~~
+The number of windows to be used for the rate estimate vector; default to be number of observations/100
 }
   \item{lowessF}{
-%%     ~~Describe \code{lowessF} here~~
+Smoothing factor for the lowess smoothing of the windowed rates, describes the proportion of windows around a particular window that has influence on its smoothed rate estimate
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This is used to give a realistic estimate of the rate nhpp of control samples
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+Returns a vector of length \code{length.out} that contains the smoothed rate estimate of each window
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+\author{
+Jeremy J. Shen
+}
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{nhppSimulate}}
 }

@@ -55,7 +55,7 @@ function(combX, combZ, combL, statistic, grid.size, nGridSize, timeIGSBreakDown,
 		timeIGSnew = proc.time()[3]
 		newRes = ScanStatNewComp(combZCumSum, combXCumSum, combZPoint, combXPoint, p, nTotal, grid.cur, max.win, statistic)
 		if(takeN/nrow(newRes) > 0.2) {
-			cpts = rbind(cpts, newRes[order(abs(newRes[,3]), decreasing=T)[1:min(c(takeN, nrow(newRes)))],])
+			cpts = rbind(cpts, newRes[order(abs(newRes[,3]), decreasing=TRUE)[1:min(c(takeN, nrow(newRes)))],])
 		}
 		else {
 			abs3NewRes = abs(newRes[,3])

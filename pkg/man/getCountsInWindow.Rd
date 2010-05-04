@@ -8,7 +8,7 @@ Get number of reads in fixed-width window
 Computes the number of reads for each fixed-width window between two limits
 }
 \usage{
-getCountsInWindow(events, startE, endE, windowSize = 10000, sorted = F)
+getCountsInWindow(events, startE, endE, windowSize = 10000, sorted = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -41,4 +41,8 @@ Jeremy J. Shen
 
 \examples{
 	getCountsInWindow(sample(1:10000, 3000, replace=TRUE), 0, 10000, 100, FALSE)
+}
+
+\seealso{
+\code{\link{ScanCBS}}
 }

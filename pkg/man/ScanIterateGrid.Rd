@@ -5,7 +5,7 @@
 Main Scan with Iterative Grid Search
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This is a computational speed-up to prevent a quadratic order computation.
 }
 \usage{
 ScanIterateGrid(combX, combZ, combL, statistic, grid.size, nGridSize, timeIGSBreakDown, takeN, verbose, timing)
@@ -13,58 +13,47 @@ ScanIterateGrid(combX, combZ, combL, statistic, grid.size, nGridSize, timeIGSBre
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{combX}{
-%%     ~~Describe \code{combX} here~~
+The number of reads at the unique read positions
 }
   \item{combZ}{
-%%     ~~Describe \code{combZ} here~~
+The number of case reads at the unique read positions
 }
   \item{combL}{
-%%     ~~Describe \code{combL} here~~
+The set of the labels for the unique read positions
 }
   \item{statistic}{
-%%     ~~Describe \code{statistic} here~~
+The type of statistic to be used. Can be 'binomial','rabinowitz', 'normal', or 'hybrid'
 }
   \item{grid.size}{
-%%     ~~Describe \code{grid.size} here~~
+The set of grid sizes for the iterative search. An automatic default can be given
 }
   \item{nGridSize}{
-%%     ~~Describe \code{nGridSize} here~~
+The number of grid sizes
 }
   \item{timeIGSBreakDown}{
-%%     ~~Describe \code{timeIGSBreakDown} here~~
+Cumulative timing of IGS, in a broken down fashion
 }
   \item{takeN}{
-%%     ~~Describe \code{takeN} here~~
+The number of candidate change points to be added to a temporary set at each grid size
 }
   \item{verbose}{
-%%     ~~Describe \code{verbose} here~~
+If \code{TRUE}, then will print much information on each segmentation. For diagnostics only.
 }
   \item{timing}{
-%%     ~~Describe \code{timing} here~~
+If \code{TRUE}, perform a timing of this algorithm, include in the output data file.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This algorithm is a computational speed-up tool. It computes the statistic on coarse grids, and refine to finer grids. Also, at each refinement, it computes all new smaller windows on the finer grid that would not have been captured by the coarse grid. Hence it has a New Scan step and a Refine Scan step, both implemented in C for speed.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+  \item{cptsRet }{The current set of change points called after the IGS scan of the current region}
+  \item{timeIGSBreakDown }{A break-down of the time used at the stages of the IGS}
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{ScanCBS}}, \code{\link{ScanStatNewComp}}, \code{\link{ScanStatRefineComp}}
 }

@@ -1,7 +1,7 @@
 readSeqMLove <-
 function(filename) {
 	## Assume all matched reads from output
-	seqMatch = read.table(filename, as.is=T)
+	seqMatch = read.table(filename, as.is=TRUE)
 	seqChr = factor(seqMatch[,1])
 	seqFront = seqMatch[,3]
 	normalLFflag = (seqFront=="F")

@@ -1,6 +1,6 @@
 readListInputFile <-
 function(inputFilename, sep="\t") {
-	inputFiles = read.table(inputFilename, sep=sep, header=T, as.is=T)
+	inputFiles = read.table(inputFilename, sep=sep, header=TRUE, as.is=TRUE)
 	colInput = colnames(inputFiles)
 	if("File" %in% colInput && "Type" %in% colInput) {
 		if(sum(inputFiles$Type=="Normal")==0 || sum(inputFiles$Type=="Tumor")==0) {

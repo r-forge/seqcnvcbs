@@ -5,7 +5,7 @@
 Simulate a homogeneous Poisson Process
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Simulation of a homogeneous poisson process using poisson and uniform distribution
 }
 \usage{
 hppSimulate(lambda, maxVal)
@@ -13,34 +13,24 @@ hppSimulate(lambda, maxVal)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lambda}{
-%%     ~~Describe \code{lambda} here~~
+	The rate of the poisson process
 }
   \item{maxVal}{
-%%     ~~Describe \code{maxVal} here~~
+	The maximum length of the process to be observed
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This is a very simple simulation function meant to be used in the NHPP generation.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+	Returns a vector of point events generated for this process
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+\author{
+Jeremy J. Shen
+}
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{nhppSimulate}}
+
 }

@@ -10,7 +10,7 @@ function(smoothRates, nSpike=25, cptLenR=4, cptLenMean=10, minGain=1.5, maxGain=
 	cptGridLen = rnbinom(nSpike, size=cptLenR, mu=cptLenMean)
 	gridR = gridL+cptGridLen
 	gridR[gridR>nGrid] = nGrid
-	relCN = sample(0:1, nSpike, replace=T, prob=c(1-pGain, pGain))
+	relCN = sample(0:1, nSpike, replace=TRUE, prob=c(1-pGain, pGain))
 	relCN[1] = 0
 	relCN[2] = 1
 	relCN[relCN==0] = runif(sum(relCN==0), min=minLoss, max=maxLoss)

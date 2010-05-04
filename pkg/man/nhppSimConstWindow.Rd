@@ -1,11 +1,10 @@
 \name{nhppSimConstWindow}
 \alias{nhppSimConstWindow}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Simulate a Non-Homogeneous PP with constant window spike
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Simulate non-homogeneous Poisson processes with a number of constant-widths windows of signal spike, and run CBS on them.
 }
 \usage{
 nhppSimConstWindow(controlRates, nSpike = 25, cptLen = seq(5, 50, by = 5), nRepeat = 5, minGain = 1.5, maxGain = 5, minLoss = 0.01, maxLoss = 0.5, pGain = 0.6)
@@ -13,55 +12,46 @@ nhppSimConstWindow(controlRates, nSpike = 25, cptLen = seq(5, 50, by = 5), nRepe
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{controlRates}{
-%%     ~~Describe \code{controlRates} here~~
+The estimated rate of nhpp for the control
 }
   \item{nSpike}{
-%%     ~~Describe \code{nSpike} here~~
+Number of signal spikes
 }
   \item{cptLen}{
-%%     ~~Describe \code{cptLen} here~~
+Constant width of the signal (CN gain or loss) region to simulate, can be a vector of different values for which to test
 }
   \item{nRepeat}{
-%%     ~~Describe \code{nRepeat} here~~
+Number of total samples to generate for each choice of the width of the signal
 }
   \item{minGain}{
-%%     ~~Describe \code{minGain} here~~
+Minimal signal gain
 }
   \item{maxGain}{
-%%     ~~Describe \code{maxGain} here~~
+Maximal signal gain
 }
   \item{minLoss}{
-%%     ~~Describe \code{minLoss} here~~
+Minimal signal loss
 }
   \item{maxLoss}{
-%%     ~~Describe \code{maxLoss} here~~
+Maximal signal loss
 }
   \item{pGain}{
-%%     ~~Describe \code{pGain} here~~
+Proportion of the signal regions that are CN gain
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This function is used in conjunction with a modified, windowed rate vector to simulate non-homogeneous Poisson processes with a number of constant-widths windows of signal spike, and run CBS on them.
+One should use the \code{\link{nhppRateEstimate}} function to estimate the rate of a control sample one wishes to mimic. This function randomly choose windows of a specified constant width, and spike in signals (change points) which can be either gain or loss of copy numbers.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+Return the results of the simulation in a list
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+\author{
+Jeremy J. Shen
+}
+
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{nhppSimulate}}
 }

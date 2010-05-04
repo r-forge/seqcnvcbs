@@ -5,7 +5,7 @@
 Plotting for CBS results of Simulated Data
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This is an overall plotting function to display the segmentation for a chromosome, for simulation data.
 }
 \usage{
 ScanCBSSimPlot(cases, controls, CBSObj, filename, mainTitle, length.out = 1000, smoothF = 25, xlabScale = 10^6, width = 12, height = 18)
@@ -13,58 +13,46 @@ ScanCBSSimPlot(cases, controls, CBSObj, filename, mainTitle, length.out = 1000, 
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{cases}{
-%%     ~~Describe \code{cases} here~~
+The case read positions (should be restricted to a chromosome)
 }
   \item{controls}{
-%%     ~~Describe \code{controls} here~~
+The control read positions (should be restricted to a chromosome)
 }
   \item{CBSObj}{
-%%     ~~Describe \code{CBSObj} here~~
+The output object of the \code{\link{ScanCBS}} function
 }
   \item{filename}{
-%%     ~~Describe \code{filename} here~~
+The output file names of the plot
 }
   \item{mainTitle}{
-%%     ~~Describe \code{mainTitle} here~~
+The title of the plot
 }
   \item{length.out}{
-%%     ~~Describe \code{length.out} here~~
+The number of windows to use for the display of smoothed rate estimates
 }
   \item{smoothF}{
-%%     ~~Describe \code{smoothF} here~~
+The lowess smoothing factor. The proportion of windows around the current window that affects its smoothed rate estimate
 }
   \item{xlabScale}{
-%%     ~~Describe \code{xlabScale} here~~
+The scaling factor of the read positions, often in 10^6, or Mb
 }
   \item{width}{
-%%     ~~Describe \code{width} here~~
+The width of the output graph in inches
 }
   \item{height}{
-%%     ~~Describe \code{height} here~~
+The height of the output graph in inches
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This is similar to \code{\link{ScanCBSPlot}}. This function produces three sub-graphs, showing the segmentation calls, the smoothed rate estimate, and the inferred relative copy number. It is crucial that one seperates the plot for each chromosome
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+No return object
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{ScanCBS}}, \code{\link{relCNComp}}
 }

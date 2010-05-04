@@ -2,10 +2,10 @@
 \alias{readSeq}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Manage the reading of different raw data formats
+Wrapper for managing the reading of different raw data formats
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This is a wrapper function. It calls one of the subroutines to reads in a datafile, depending on the format
 }
 \usage{
 readSeq(filename, formatName)
@@ -13,34 +13,26 @@ readSeq(filename, formatName)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{filename}{
-%%     ~~Describe \code{filename} here~~
+The file name of the data file to be read
 }
   \item{formatName}{
-%%     ~~Describe \code{formatName} here~~
+The format the file is in. Can be one of the following. 'Chiang', 'ELANDPaired', 'JShen', 'MLove'. However, the last two are internal testing formats that should not be used.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+We recommend using the 'Chiang' format, as used by the datasets of Chiang (2009). This format requires minimal memory and contains all relevant information for this program. It is a table with two columns, first being the chromosome of the mapped read, and the second being the position of the read in the chromosome. One line for each observation. In case of paired read, we only use the front read (whichever has a smaller position label) and ask that you use only that for input.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+  \item{seqF }{Read position for each read}
+  \item{seqChr }{Chromosome of each mapped read}
 }
 \references{
-%% ~put references to the literature/web site here ~
+Chiang et al., Nature Methods, 2009, Vol.6 No.1
 }
 \author{
-%%  ~~who you are~~
+Jeremy J. Shen
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{readSeq}}, \code{\link{readSeqChiang}}, \code{\link{readSeqELANDPaired}}
 }
