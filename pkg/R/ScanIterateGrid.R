@@ -37,6 +37,9 @@ function(combX, combZ, combL, statistic, grid.size, nGridSize, timeIGSBreakDown,
 		combZPoint = as.numeric(combZ[grid.cur])
 		combXPoint = as.numeric(combX[grid.cur])
 		timeIGSBreakDown[timeRow,3] = timeIGSBreakDown[timeRow,3] + proc.time()[3] - timeIGSnew
+		if(verbose)	{
+			print(paste("PassedCumSum", g))
+		}
 		
 		## 2. Refine existing change-points in bag
 		timeIGSnew = proc.time()[3]
@@ -48,6 +51,9 @@ function(combX, combZ, combL, statistic, grid.size, nGridSize, timeIGSBreakDown,
 				#print(refineRes)
 				cpts[r,] = refineRes[which.max(abs(refineRes[,3])),]
 			}
+		}
+		if(verbose)	{
+			print(paste("PassedRefineScan", g))
 		}
 		timeIGSBreakDown[timeRow,2] = timeIGSBreakDown[timeRow,2] + proc.time()[3] - timeIGSnew
 		
@@ -65,6 +71,9 @@ function(combX, combZ, combL, statistic, grid.size, nGridSize, timeIGSBreakDown,
 				cpts = rbind(cpts, newRes[maxIndex,])
 				newRes = newRes[-maxIndex,]
 			}
+		}
+		if(verbose)	{
+			print(paste("PassedNewScan", g))
 		}
 		timeIGSBreakDown[timeRow,1] = timeIGSBreakDown[timeRow,1] + proc.time()[3] - timeIGSnew
 	}

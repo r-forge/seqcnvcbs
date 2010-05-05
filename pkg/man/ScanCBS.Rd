@@ -8,7 +8,7 @@ Main CBS Algorithm for Change-Point Detection
 This is the main algorithm. It teratively scans for window of arbitrary size where the case and control read depths are different. It continues until a stopping criterion based on mBIC, maximum number of cut, and the statistic at the current segment.
 }
 \usage{
-ScanCBS(cases, controls, statistic = "hybrid", grid.size = "auto", takeN = 1, maxNCut = 20, minStat = 5, verbose = FALSE, timing = TRUE)
+ScanCBS(cases, controls, statistic = "binomial", grid.size = "auto", takeN = 5, maxNCut = 30, minStat = 5, verbose = FALSE, timing = TRUE)
 }
 \arguments{
   \item{cases}{

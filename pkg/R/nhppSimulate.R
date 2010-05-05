@@ -9,6 +9,7 @@ function(smoothRates) {
 	smoothRatesY = smoothRates$y
 	smoothMaxY = unlist(sapply(1:length(grid.start), function(i) {return(max(smoothRatesY[max(i-1,1)], smoothRatesY[i], smoothRatesY[min(i+1,length(grid.start))]))}))
 	hppEvents = unlist(sapply(1:length(grid.start), function(i) {return(sort(hppSimulate(smoothMaxY[i], gridSize)) + grid.start[i])}))
+	hppEvents = floor(hppEvents)
 	hppEventsRateI = findInterval(hppEvents, grid.start)
 	nEvents = length(hppEvents)
 	hppEventsIL = findInterval(hppEvents, grid.mid)

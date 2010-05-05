@@ -1,5 +1,5 @@
 readInput <-
-function(inputFilename, formatName, sep="\t") {
+function(inputFilename, formatName="Chiang", sep="\t") {
 	inputFiles = readListInputFile(inputFilename, sep)
 	nNormalRun = length(inputFiles$normalFiles)
 	nTumorRun = length(inputFiles$tumorFiles)

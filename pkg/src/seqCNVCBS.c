@@ -105,8 +105,6 @@ SEXP FindUniqueInSortedArrayC(SEXP combCCS) {
 
 
 SEXP ScanIGSGridCumSumC(SEXP combYS, SEXP gridCurS) {
-	gridCurS = coerceVector(gridCurS, INTSXP);
-
 	double *combY = REAL(combYS);
 	double *gridCur = REAL(gridCurS);
 	long gridCurLen = length(gridCurS);

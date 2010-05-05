@@ -8,7 +8,7 @@ Manage reading and merging of raw datasets. Main file input
 This is used to control the read of a meta file containing names of data files, merge, and give usable output for the main program
 }
 \usage{
-readInput(inputFilename, formatName, sep = "\t")
+readInput(inputFilename, formatName="Chiang", sep = "\t")
 }
 \arguments{
   \item{inputFilename}{
