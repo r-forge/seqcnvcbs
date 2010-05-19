@@ -8,7 +8,7 @@ Estimate the rate of non-homogeneous PP with data
 Given a vector of point events, give a rough estimate of the rate of underlying non-homogeneous Poisson process by window and smoothing
 }
 \usage{
-nhppRateEstimate(controls, length.out = floor(length(controls)/100), lowessF = 0.1)
+nhppRateEstimate(controls, length.out = floor(length(controls)/20), lowessF = 0.1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

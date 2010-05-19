@@ -1,5 +1,5 @@
 ScanCBSSimPlot <-
-function(cases, controls, CBSObj, filename, mainTitle, length.out=1000, smoothF=25, xlabScale=10^6, width=12, height=18) {
+function(cases, controls, CBSObj, trueTau, SpikeMat, filename, mainTitle, length.out=1000, smoothF=25, xlabScale=10^6, width=12, height=9) {
 	maxCase = max(cases)
 	maxControl = max(controls)
 	maxVal = max(c(maxCase, maxControl))
@@ -22,28 +22,26 @@ function(cases, controls, CBSObj, filename, mainTitle, length.out=1000, smoothF=
 	PInGrid[is.nan(PInGrid)]=0
 	PInGridSmooth = lowess(x=grid.fix, y=PInGrid, smoothF/length.out)
 	tauHatInGrid = grid.fix[tauHat %/% gridSize]/xlabScale
+	trueTauInGrid = grid.fix[trueTau %/% gridSize]/xlabScale
 
 	pdf(paste(filename, ".pdf", sep=""), width=width, height=height)
-	par(mfrow=c(3,1))
+	par(mfrow=c(2,1))
 	plot(x=grid.fix/xlabScale, y=rep(0, length(grid.fix)), type="n", ylim=ylims, main=mainTitle, ylab="Statistic", xlab=paste("Base Pairs", xlabScale))
 	for(i in 1:nrow(cpts)) {
 		plotX = c(grid.fix[max(floor(cpts[i,1]/gridSize), 1)]/xlabScale, grid.fix[ceiling(cpts[i,2]/gridSize)]/xlabScale)
-		lines(x=plotX, y=rep(cpts[i,3],2), lwd=3)
+		lines(x=plotX, y=rep(cpts[i,3],2), lwd=2)
+	}
+	for(i in 1:nrow(SpikeMat)) {
+		plotX = c(grid.fix[max(floor(SpikeMat[i,3]/gridSize), 1)]/xlabScale, grid.fix[ceiling(SpikeMat[i,4]/gridSize)]/xlabScale)
+		lines(x=plotX, y=rep(SpikeMat[i,5],2), lwd=2, col=2)
 	}
 	abline(v=tauHatInGrid, lty=3, col=2)
+	abline(v=trueTauInGrid, lty=3, col=3)
 	
 	matplot(x=grid.fix/xlabScale, y=log(cbind(casesCountInGridSmooth$y, controlCountInGridSmooth$y)+1), type="l", lty=c(1,1), main="Smoothed Log Read Intensity", ylab="Smoothed Intensity, P", xlab=paste("Base Pairs", xlabScale))
 	abline(v=tauHatInGrid, lty=3, col=2)
+	abline(v=trueTauInGrid, lty=3, col=3)
 	legend("topright", c("case","control"), lty=c(1,1), col=1:2)
-	
-	plotTauHat=cbind(c(1,tauHat), c(tauHat, maxVal))
-	plot(x=grid.fix/xlabScale, y=rep(0, length(grid.fix)), type="n", ylim=relCNlims, main="Relative Copy Number", ylab="Relative CN", xlab=paste("Base Pairs", xlabScale))
-	for(i in 1:nrow(plotTauHat)) {
-		plotx = c(grid.fix[max(floor(plotTauHat[i,1]/gridSize), 1)]/xlabScale, grid.fix[ceiling(plotTauHat[i,2]/gridSize)]/xlabScale)
-		lines(x=plotx, y=rep(relCN[i], 2), lwd=3)
-	}
-	abline(v=tauHatInGrid, lty=3, col=2)
-	abline(h=1, lty=2, col=3)
 	dev.off()
 }
 

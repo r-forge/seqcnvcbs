@@ -6,7 +6,9 @@ function(smoothRates, nSpike=25, cptLen=5, minGain=1.5, maxGain=10, minLoss=0.01
 	grid.fix = grid.mid - gridSize/2
 	nGrid = length(grid.fix)
 	
-	gridL = sample(1:(nGrid-cptLen), nSpike)
+	tempGrid = seq(1, (nGrid-cptLen), by=(cptLen+1))
+	nSpike = min(length(tempGrid), nSpike)
+	gridL = sample(tempGrid, nSpike)
 	gridR = gridL+cptLen-1
 	gridR[gridR>nGrid] = nGrid
 	relCN = sample(0:1, nSpike, replace=TRUE, prob=c(1-pGain, pGain))
@@ -20,7 +22,6 @@ function(smoothRates, nSpike=25, cptLen=5, minGain=1.5, maxGain=10, minLoss=0.01
 	for(i in 1:nSpike) {
 		spikeRate[gridL[i]:gridR[i]] = spikeRate[gridL[i]:gridR[i]]*relCN[i]
 	}
-	spikeRate = spikeRate/mean(spikeRate)*mean(smoothRates$y)
 	caseRates = list(x=grid.mid, y=spikeRate)
 	return(list(spikeMat = spikeMat, caseRates=caseRates))
 }

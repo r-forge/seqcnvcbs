@@ -1,5 +1,5 @@
 nhppRateEstimate <-
-function(controls, length.out=floor(length(controls)/100), lowessF=0.1) {
+function(controls, length.out=floor(length(controls)/20), lowessF=0.1) {
 	maxVal = max(controls)
 	grid.fix = seq(1, maxVal, length.out=length.out)
 	gridSize = grid.fix[2]-grid.fix[1]

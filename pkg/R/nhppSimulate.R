@@ -28,7 +28,13 @@ function(smoothRates) {
 			distR = abs(hppEvents[i]-grid.mid[hppEventsIR[i]])
 			hppEventsRates[i] = (smoothRatesY[hppEventsIL[i]]*distR + smoothRatesY[hppEventsIR[i]]*distL)/(distL+distR)
 		}
-		hppEventsProbs[i] = hppEventsRates[i]/smoothMaxY[hppEventsRateI[i]]
+		temp = hppEventsRates[i]/smoothMaxY[hppEventsRateI[i]]
+		if(length(temp)>0) {
+			hppEventsProbs[i] = temp
+		}
+		else {
+			hppEventsProbs[i] = 0
+		}
 	}
 	nhppUnifs = runif(nEvents)
 	nhppEvents = hppEvents[nhppUnifs < hppEventsProbs]
