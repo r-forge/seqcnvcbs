@@ -32,7 +32,15 @@ The meta input file should be organized in a table format with 2 columns, one of
 \author{
 Jeremy J. Shen
 }
+\examples{
+# This shows the format of the meta file
+data(JSSim_Meta)
+print(JSSim_Meta)
 
+# This shows the recommended format, the Chiang data format
+data(JSSim_NormalSim1)
+print(head(JSSim_NormalSim1))
+}
 \seealso{
 \code{\link{readListInputFile}}, \code{\link{readSeq}}
 }

@@ -186,7 +186,7 @@ SEXP ScanStatNewCompBinomC(SEXP combZCumSumS, SEXP combXCumSumS, SEXP combZPoint
 				bestWinI = i;
 				bestWinJ = j;
 				bestWinR = Rij;
-				bestWinRAbs = abs(bestWinR);
+				bestWinRAbs = fabs(bestWinR);
 			}
 		}
 		newResPtr[i] = gridCur[bestWinI];
@@ -285,7 +285,7 @@ SEXP ScanStatRefineCompBinomC(SEXP combZCumSumS, SEXP combXCumSumS, SEXP combZPo
 				bestWinI = i;
 				bestWinJ = j;
 				bestWinR = Rij;
-				bestWinRAbs = abs(bestWinR);
+				bestWinRAbs = fabs(bestWinR);
 			}
 		}
 		newResPtr[rCt] = gridCur[bestWinI];
@@ -361,7 +361,7 @@ SEXP ScanStatNewCompHybridC(SEXP combZCumSumS, SEXP combXCumSumS, SEXP combZPoin
 				bestWinI = i;
 				bestWinJ = j;
 				bestWinR = Rij;
-				bestWinRAbs = abs(bestWinR);
+				bestWinRAbs = fabs(bestWinR);
 			}
 		}
 		newResPtr[i] = gridCur[bestWinI];
@@ -464,7 +464,7 @@ SEXP ScanStatRefineCompHybridC(SEXP combZCumSumS, SEXP combXCumSumS, SEXP combZP
 				bestWinI = i;
 				bestWinJ = j;
 				bestWinR = Rij;
-				bestWinRAbs = abs(bestWinR);
+				bestWinRAbs = fabs(bestWinR);
 			}
 		}
 		newResPtr[rCt] = gridCur[bestWinI];
@@ -529,7 +529,7 @@ SEXP ScanStatNewCompNormalC(SEXP combZCumSumS, SEXP combXCumSumS, SEXP combZPoin
 				bestWinI = i;
 				bestWinJ = j;
 				bestWinR = Rij;
-				bestWinRAbs = abs(bestWinR);
+				bestWinRAbs = fabs(bestWinR);
 			}
 		}
 		newResPtr[i] = gridCur[bestWinI];
@@ -621,7 +621,7 @@ SEXP ScanStatRefineCompNormalC(SEXP combZCumSumS, SEXP combXCumSumS, SEXP combZP
 				bestWinI = i;
 				bestWinJ = j;
 				bestWinR = Rij;
-				bestWinRAbs = abs(bestWinR);
+				bestWinRAbs = fabs(bestWinR);
 			}
 		}
 		newResPtr[rCt] = gridCur[bestWinI];
@@ -686,7 +686,7 @@ SEXP ScanStatNewCompRabinC(SEXP combZCumSumS, SEXP combXCumSumS, SEXP combZPoint
 				bestWinI = i;
 				bestWinJ = j;
 				bestWinR = Rij;
-				bestWinRAbs = abs(bestWinR);
+				bestWinRAbs = fabs(bestWinR);
 			}
 		}
 		newResPtr[i] = gridCur[bestWinI];
@@ -778,7 +778,7 @@ SEXP ScanStatRefineCompRabinC(SEXP combZCumSumS, SEXP combXCumSumS, SEXP combZPo
 				bestWinI = i;
 				bestWinJ = j;
 				bestWinR = Rij;
-				bestWinRAbs = abs(bestWinR);
+				bestWinRAbs = fabs(bestWinR);
 			}
 		}
 		newResPtr[rCt] = gridCur[bestWinI];

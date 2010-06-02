@@ -29,7 +29,11 @@ Chiang et al., Nature Methods, 2009, Vol.6 No.1
 \author{
 Jeremy J. Shen
 }
-
+\examples{
+# This shows the format of this type of data
+data(JSSim_NormalSim1)
+print(head(JSSim_NormalSim1))
+}
 \seealso{
 \code{\link{readSeq}}, \code{\link{readSeqChiang}}, \code{\link{readSeqELANDPaired}}
 }
