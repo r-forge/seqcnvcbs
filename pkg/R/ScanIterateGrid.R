@@ -17,6 +17,9 @@ function(combX, combZ, combL, statistic, grid.size, nGridSize, timeIGSBreakDown,
 	
 	## Initialize the bag of change point calls
 	cpts = matrix(nrow=0, ncol=3)
+	if(grid.size[length(grid.size)] > 4) {
+		grid.size = c(grid.size, 2)
+	}
 	
 	## Variable Windows by Grid Refinement
 	for(g in 1:length(grid.size)) {
@@ -58,24 +61,26 @@ function(combX, combZ, combL, statistic, grid.size, nGridSize, timeIGSBreakDown,
 		timeIGSBreakDown[timeRow,2] = timeIGSBreakDown[timeRow,2] + proc.time()[3] - timeIGSnew
 		
 		## 3. New Scan with the current grid size
-		timeIGSnew = proc.time()[3]
-		newRes = ScanStatNewComp(combZCumSum, combXCumSum, combZPoint, combXPoint, p, nTotal, grid.cur, max.win, statistic)
-		if(takeN/nrow(newRes) > 0.2) {
-			cpts = rbind(cpts, newRes[order(abs(newRes[,3]), decreasing=TRUE)[1:min(c(takeN, nrow(newRes)))],])
-		}
-		else {
-			abs3NewRes = abs(newRes[,3])
-			for(k in 1:takeN) {
-				maxIndex = which.max(abs3NewRes)
-				abs3NewRes = abs3NewRes[-maxIndex]
-				cpts = rbind(cpts, newRes[maxIndex,])
-				newRes = newRes[-maxIndex,]
+		if(grid.size[g] > 4) {
+			timeIGSnew = proc.time()[3]
+			newRes = ScanStatNewComp(combZCumSum, combXCumSum, combZPoint, combXPoint, p, nTotal, grid.cur, max.win, statistic)
+			if(takeN/nrow(newRes) > 0.2) {
+				cpts = rbind(cpts, newRes[order(abs(newRes[,3]), decreasing=TRUE)[1:min(c(takeN, nrow(newRes)))],])
 			}
+			else {
+				abs3NewRes = abs(newRes[,3])
+				for(k in 1:takeN) {
+					maxIndex = which.max(abs3NewRes)
+					abs3NewRes = abs3NewRes[-maxIndex]
+					cpts = rbind(cpts, newRes[maxIndex,])
+					newRes = newRes[-maxIndex,]
+				}
+			}
+			if(verbose)	{
+				print(paste("PassedNewScan", g))
+			}
+			timeIGSBreakDown[timeRow,1] = timeIGSBreakDown[timeRow,1] + proc.time()[3] - timeIGSnew
 		}
-		if(verbose)	{
-			print(paste("PassedNewScan", g))
-		}
-		timeIGSBreakDown[timeRow,1] = timeIGSBreakDown[timeRow,1] + proc.time()[3] - timeIGSnew
 	}
 	cptsRet = cpts[which.max(abs(cpts[,3])),]
 	return(list(cptsRet=cptsRet, timeIGSBreakDown=timeIGSBreakDown))
